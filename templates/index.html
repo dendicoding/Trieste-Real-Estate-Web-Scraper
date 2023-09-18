@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Immobiliare.it Scraper</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    </head>
+
+
+    <body>
+        <img src="https://raw.githubusercontent.com/dendicoding/Trieste-Real-Estate-Web-Scraper/main/Trieste_Real_Estate_Web_Scraper_LOGO.png">
+    <br>
+    <form action="update" method="post">
+        {% for message in get_flashed_messages()%}
+            <p>{{message}}</p>
+        {% endfor%}
+        <br>
+        <div class="container">
+            <button action="update" method="post" type="submit">Update</button>
+        </div>
+    </form>
+        <div class="filter" align="center">
+            <table>
+                <h1>
+                {% for table in tables%}
+                <h2>{{titles[loop.index]}}</h2>
+                {{table | safe}} {% endfor %}
+                </h1>
+        </div>
+    </body>
+</html>
